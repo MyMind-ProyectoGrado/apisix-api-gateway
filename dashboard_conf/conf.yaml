@@ -1,0 +1,15 @@
+conf:
+  listen:
+    port: 9000
+
+  etcd:
+    endpoints:
+      - etcd:2379
+    timeout: 60 
+      
+authentication:
+  secret: "my-secret"
+  expire_time: 3600  
+  users:
+    - username: admin
+      password: password123
