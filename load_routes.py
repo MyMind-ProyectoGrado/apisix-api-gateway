@@ -10,20 +10,27 @@ APISIX_HOST = os.getenv("APISIX_ADMIN_API", "http://localhost:9180")
 ROUTES_FILE = "routes.yaml"
 ENVIRONMENT = os.getenv("ENVIRONMENT", "local")
 
-# Definición explícita de nombres de variables específicas para el backend de usuarios
+# Definición explícita de nombres de variables específicas para el backend de usuarios y modelos
 if ENVIRONMENT == "local":
-    backend_url = os.getenv("BACK_SV_USERS_LOCAL", "http://localhost")
-    backend_port = os.getenv("BACK_SV_USERS_PORT", "8000")
+    backend_users_url = os.getenv("BACK_SV_USERS_LOCAL", "http://localhost")
+    backend_users_port = os.getenv("BACK_SV_USERS_PORT", "8000")
+    backend_models_url = os.getenv("BACK_SV_MODELS_LOCAL", "http://localhost")
+    backend_models_port = os.getenv("BACK_SV_MODELS_PORT", "8000")
 else:
-    backend_url = os.getenv("BACK_SV_USERS_PROD", "http://localhost")
-    backend_port = os.getenv("BACK_SV_USERS_PROD_PORT", "8000")
+    backend_users_url = os.getenv("BACK_SV_USERS_PROD", "http://localhost")
+    backend_users_port = os.getenv("BACK_SV_USERS_PROD_PORT", "8000")
+    backend_models_url = os.getenv("BACK_SV_MODELS_PROD", "http://localhost")
+    backend_models_port = os.getenv("BACK_SV_MODELS_PROD_PORT", "8000")
 
-# Derivar el host desde la URL
-backend_host = backend_url.replace("http://", "").replace("https://", "").split("/")[0]
+# Derivar los hosts desde las URLs
+backend_users_host = backend_users_url.replace("http://", "").replace("https://", "").split("/")[0]
+backend_models_host = backend_models_url.replace("http://", "").replace("https://", "").split("/")[0]
 
 # Inyectar explícitamente para que el YAML las reemplace
-os.environ["BACK_SV_USERS_HOST"] = backend_host
-os.environ["BACK_SV_USERS_PORT"] = backend_port
+os.environ["BACK_SV_USERS_HOST"] = backend_users_host
+os.environ["BACK_SV_USERS_PORT"] = backend_users_port
+os.environ["BACK_SV_MODELS_HOST"] = backend_models_host
+os.environ["BACK_SV_MODELS_PORT"] = backend_models_port
 
 # Esperar a que APISIX esté listo
 print("⌛ Esperando a que APISIX esté listo...")
