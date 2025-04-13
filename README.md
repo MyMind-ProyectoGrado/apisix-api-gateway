@@ -28,6 +28,10 @@ Este proyecto implementa un **API Gateway** con **Apache APISIX**, autenticació
 docker-compose up -d
 ```
 
+3. Accede al APISIX Dashboard en navegador:
+```bash
+http://localhost:9000
+```
 
 ## 📌 Notas
 
