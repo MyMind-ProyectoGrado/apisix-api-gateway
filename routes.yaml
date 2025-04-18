@@ -221,7 +221,7 @@
   upstream:
     type: roundrobin
     nodes:
-      "${BACK_SV_MODELS_HOST}:${BACK_SV_MODELS_PORT}": 1
+      "${BACK_SV_USERS_HOST}:${BACK_SV_USERS_PORT}": 1
     pass_host: pass
 
 - uri: /users/transcriptions/{transcription_id}
@@ -238,7 +238,7 @@
   upstream:
     type: roundrobin
     nodes:
-      "${BACK_SV_MODELS_HOST}:${BACK_SV_MODELS_PORT}": 1
+      "${BACK_SV_USERS_HOST}:${BACK_SV_USERS_PORT}": 1
     pass_host: pass
 
 - uri: /users/transcriptions/by-emotion/{emotion}
@@ -255,7 +255,7 @@
   upstream:
     type: roundrobin
     nodes:
-      "${BACK_SV_MODELS_HOST}:${BACK_SV_MODELS_PORT}": 1
+      "${BACK_SV_USERS_HOST}:${BACK_SV_USERS_PORT}": 1
     pass_host: pass
 
 - uri: /users/transcriptions/by-sentiment/{sentiment}
@@ -272,7 +272,7 @@
   upstream:
     type: roundrobin
     nodes:
-      "${BACK_SV_MODELS_HOST}:${BACK_SV_MODELS_PORT}": 1
+      "${BACK_SV_USERS_HOST}:${BACK_SV_USERS_PORT}": 1
     pass_host: pass
 
 - uri: /users/transcriptions/by-topic/{topic}
@@ -289,7 +289,7 @@
   upstream:
     type: roundrobin
     nodes:
-      "${BACK_SV_MODELS_HOST}:${BACK_SV_MODELS_PORT}": 1
+      "${BACK_SV_USERS_HOST}:${BACK_SV_USERS_PORT}": 1
     pass_host: pass
 
 - uri: /users/transcriptions/by-date/{date}
@@ -306,7 +306,7 @@
   upstream:
     type: roundrobin
     nodes:
-      "${BACK_SV_MODELS_HOST}:${BACK_SV_MODELS_PORT}": 1
+      "${BACK_SV_USERS_HOST}:${BACK_SV_USERS_PORT}": 1
     pass_host: pass
 
 - uri: /users/transcriptions/by-hour/
@@ -323,7 +323,7 @@
   upstream:
     type: roundrobin
     nodes:
-      "${BACK_SV_MODELS_HOST}:${BACK_SV_MODELS_PORT}": 1
+      "${BACK_SV_USERS_HOST}:${BACK_SV_USERS_PORT}": 1
     pass_host: pass
 
 - uri: /users/transcriptions/filter
@@ -340,10 +340,27 @@
   upstream:
     type: roundrobin
     nodes:
+      "${BACK_SV_USERS_HOST}:${BACK_SV_USERS_PORT}": 1
+    pass_host: pass
+
+- uri: /transcription/add-transcription/text
+  methods:
+    - POST
+  plugins:
+    openid-connect:
+      bearer_only: true
+      use_jwks: true
+      client_id: ${AUTH0_CLIENT_ID}
+      client_secret: ${AUTH0_CLIENT_SECRET}
+      discovery: ${AUTH0_DISCOVERY_URL}
+      scope: "openid profile"
+  upstream:
+    type: roundrobin
+    nodes:
       "${BACK_SV_MODELS_HOST}:${BACK_SV_MODELS_PORT}": 1
     pass_host: pass
 
-- uri: /users/transcriptions/add-transcription
+- uri: /transcription/add-transcription/audio
   methods:
     - POST
   plugins:
@@ -374,7 +391,7 @@
   upstream:
     type: roundrobin
     nodes:
-      "${BACK_SV_MODELS_HOST}:${BACK_SV_MODELS_PORT}": 1
+      "${BACK_SV_USERS_HOST}:${BACK_SV_USERS_PORT}": 1
     pass_host: pass
 
 - uri: /users/transcriptions/delete-all-transcriptions
@@ -391,5 +408,5 @@
   upstream:
     type: roundrobin
     nodes:
-      "${BACK_SV_MODELS_HOST}:${BACK_SV_MODELS_PORT}": 1
+      "${BACK_SV_USERS_HOST}:${BACK_SV_USERS_PORT}": 1
     pass_host: pass
