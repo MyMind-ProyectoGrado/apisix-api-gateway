@@ -156,6 +156,22 @@
 - uri: /users/profile-pic
   methods:
     - GET
+  plugins:
+    openid-connect:
+      bearer_only: true
+      use_jwks: true
+      client_id: ${AUTH0_CLIENT_ID}
+      client_secret: ${AUTH0_CLIENT_SECRET}
+      discovery: ${AUTH0_DISCOVERY_URL}
+      scope: "openid profile"
+  upstream:
+    type: roundrobin
+    nodes:
+      "${BACK_SV_USERS_HOST}:${BACK_SV_USERS_PORT}": 1
+    pass_host: pass
+
+- uri: /users/update-profile-pic
+  methods:
     - PATCH
   plugins:
     openid-connect:
@@ -207,7 +223,7 @@
     pass_host: pass
 
 # Rutas de transcripciones
-- uri: /users/transcriptions
+- uri: /users/transcriptions/
   methods:
     - GET
   plugins:
@@ -224,7 +240,7 @@
       "${BACK_SV_USERS_HOST}:${BACK_SV_USERS_PORT}": 1
     pass_host: pass
 
-- uri: /users/transcriptions/{transcription_id}
+- uri: /users/transcriptions/*
   methods:
     - GET
   plugins:
@@ -258,7 +274,7 @@
       "${BACK_SV_USERS_HOST}:${BACK_SV_USERS_PORT}": 1
     pass_host: pass
 
-- uri: /users/transcriptions/by-sentiment/{sentiment}
+- uri: /users/transcriptions/by-sentiment/*
   methods:
     - GET
   plugins:
@@ -275,8 +291,7 @@
       "${BACK_SV_USERS_HOST}:${BACK_SV_USERS_PORT}": 1
     pass_host: pass
 
-- uri: /users/transcriptions/by-topic/{topic}
-  methods:
+- uri: /users/transcriptions/by-topic/*
     - GET
   plugins:
     openid-connect:
@@ -292,7 +307,7 @@
       "${BACK_SV_USERS_HOST}:${BACK_SV_USERS_PORT}": 1
     pass_host: pass
 
-- uri: /users/transcriptions/by-date/{date}
+- uri: /users/transcriptions/by-date/*
   methods:
     - GET
   plugins:
