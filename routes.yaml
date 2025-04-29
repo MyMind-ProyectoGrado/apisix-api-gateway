@@ -425,3 +425,55 @@
     nodes:
       "${BACK_SV_USERS_HOST}:${BACK_SV_USERS_PORT}": 1
     pass_host: pass
+
+# Rutas de visualizaciones
+- uri: /transcriptions/user/latest
+  methods:
+    - GET
+  plugins:
+    openid-connect:
+      bearer_only: true
+      use_jwks: true
+      client_id: ${AUTH0_CLIENT_ID}
+      client_secret: ${AUTH0_CLIENT_SECRET}
+      discovery: ${AUTH0_DISCOVERY_URL}
+      scope: "openid profile"
+  upstream:
+    type: roundrobin
+    nodes:
+      "${BACK_SV_VISUALIZATIONS_HOST}:${BACK_SV_VISUALIZATIONS_PORT}": 1
+    pass_host: pass
+    
+- uri: /transcriptions/user/last-7-days
+  methods:
+    - GET
+  plugins:
+    openid-connect:
+      bearer_only: true
+      use_jwks: true
+      client_id: ${AUTH0_CLIENT_ID}
+      client_secret: ${AUTH0_CLIENT_SECRET}
+      discovery: ${AUTH0_DISCOVERY_URL}
+      scope: "openid profile"
+  upstream:
+    type: roundrobin
+    nodes:
+      "${BACK_SV_VISUALIZATIONS_HOST}:${BACK_SV_VISUALIZATIONS_PORT}": 1
+    pass_host: pass
+  
+- uri: /transcriptions/user/last-week/top-emotions-sentiments
+  methods:
+    - GET
+  plugins:
+    openid-connect:
+      bearer_only: true
+      use_jwks: true
+      client_id: ${AUTH0_CLIENT_ID}
+      client_secret: ${AUTH0_CLIENT_SECRET}
+      discovery: ${AUTH0_DISCOVERY_URL}
+      scope: "openid profile"
+  upstream:
+    type: roundrobin
+    nodes:
+      "${BACK_SV_VISUALIZATIONS_HOST}:${BACK_SV_VISUALIZATIONS_PORT}": 1
+    pass_host: pass

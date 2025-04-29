@@ -12,25 +12,32 @@ ENVIRONMENT = os.getenv("ENVIRONMENT", "local")
 
 # Definición explícita de nombres de variables específicas para el backend de usuarios y modelos
 if ENVIRONMENT == "local":
-    backend_users_url = os.getenv("BACK_SV_USERS_LOCAL", "http://localhost")
+    backend_users_url = os.getenv("BACK_SV_USERS_LOCAL")
     backend_users_port = os.getenv("BACK_SV_USERS_PORT", "8000")
-    backend_models_url = os.getenv("BACK_SV_MODELS_LOCAL", "http://localhost")
-    backend_models_port = os.getenv("BACK_SV_MODELS_PORT", "8000")
+    backend_models_url = os.getenv("BACK_SV_MODELS_LOCAL")
+    backend_models_port = os.getenv("BACK_SV_MODELS_PORT", "8001")
+    backend_visualizations_url = os.getenv("BACK_SV_VISUALIZATIONS_LOCAL")
+    backend_visualizations_port = os.getenv("BACK_SV_VISUALIZATIONS_PORT", "8002")
 else:
-    backend_users_url = os.getenv("BACK_SV_USERS_PROD", "http://localhost")
+    backend_users_url = os.getenv("BACK_SV_USERS_PROD")
     backend_users_port = os.getenv("BACK_SV_USERS_PROD_PORT", "8000")
-    backend_models_url = os.getenv("BACK_SV_MODELS_PROD", "http://localhost")
-    backend_models_port = os.getenv("BACK_SV_MODELS_PROD_PORT", "8000")
+    backend_models_url = os.getenv("BACK_SV_MODELS_PROD")
+    backend_models_port = os.getenv("BACK_SV_MODELS_PROD_PORT", "8001")
+    backend_visualizations_url = os.getenv("BACK_SV_VISUALIZATIONS_PROD")
+    backend_visualizations_port = os.getenv("BACK_SV_VISUALIZATIONS_PROD_PORT", "8002")
 
 # Derivar los hosts desde las URLs
 backend_users_host = backend_users_url.replace("http://", "").replace("https://", "").split("/")[0]
 backend_models_host = backend_models_url.replace("http://", "").replace("https://", "").split("/")[0]
+backend_visualizations_host = backend_visualizations_url.replace("http://", "").replace("https://", "").split("/")[0]
 
 # Inyectar explícitamente para que el YAML las reemplace
 os.environ["BACK_SV_USERS_HOST"] = backend_users_host
 os.environ["BACK_SV_USERS_PORT"] = backend_users_port
 os.environ["BACK_SV_MODELS_HOST"] = backend_models_host
 os.environ["BACK_SV_MODELS_PORT"] = backend_models_port
+os.environ["BACK_SV_VISUALIZATIONS_HOST"] = backend_visualizations_host
+os.environ["BACK_SV_VISUALIZATIONS_PORT"] = backend_visualizations_port
 
 # Esperar a que APISIX esté listo
 print("⌛ Esperando a que APISIX esté listo...")
