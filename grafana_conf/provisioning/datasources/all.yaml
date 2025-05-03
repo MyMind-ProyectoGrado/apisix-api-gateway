@@ -14,38 +14,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-apisix:
-  node_listen: 9080
-  enable_ipv6: false
-
-  enable_control: true
-  control:
-    ip: "0.0.0.0"
-    port: 9092
-
-plugins:  # ⬅️ Aquí declaras todos los plugins que quieres habilitar
-  - prometheus
-  - openid-connect
-
-plugin_attr:
-  prometheus:
-    export_uri: /apisix/prometheus/metrics
-    enable_export_server: true
-    export_addr:
-      ip: 0.0.0.0
-      port: 9091
-
-deployment:
-  admin:
-    allow_admin:
-      - 0.0.0.0/0
-    admin_key:
-      - name: "admin"
-        key: edd1c9f034335f136f87ad84b625c8f1
-        role: admin
-
-  etcd:
-    host:
-      - "http://etcd:2379"
-    prefix: "/apisix"
-    timeout: 30
+datasources:
+ - access: 'proxy'
+   editable: true
+   is_default: true
+   name: 'apisix'
+   org_id: 1
+   type: 'prometheus'
+   url: 'http://prometheus:9090'
+   version: 1

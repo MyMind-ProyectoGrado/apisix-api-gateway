@@ -6,7 +6,16 @@ conf:
     endpoints:
       - etcd:2379
     timeout: 60 
-      
+
+  grafana:
+    default:
+      url: "http://grafana:3000"
+      # Este nombre "grafana" debe coincidir con el nombre del contenedor en docker-compose
+      # Si usas usuario/clave para Grafana, añade también:
+      basic_auth:
+        username: "admin"
+        password: "admin"
+
 authentication:
   secret: "my-secret"
   expire_time: 3600  

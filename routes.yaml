@@ -10,6 +10,7 @@
       client_secret: ${AUTH0_CLIENT_SECRET}
       discovery: ${AUTH0_DISCOVERY_URL}
       scope: "openid profile"
+    prometheus: {} 
   upstream:
     type: roundrobin
     nodes:
@@ -28,6 +29,7 @@
       client_secret: ${AUTH0_CLIENT_SECRET}
       discovery: ${AUTH0_DISCOVERY_URL}
       scope: "openid profile"
+    prometheus: {} 
   upstream:
     type: roundrobin
     nodes:
@@ -45,6 +47,7 @@
       client_secret: ${AUTH0_CLIENT_SECRET}
       discovery: ${AUTH0_DISCOVERY_URL}
       scope: "openid profile"
+    prometheus: {} 
   upstream:
     type: roundrobin
     nodes:
@@ -62,6 +65,7 @@
       client_secret: ${AUTH0_CLIENT_SECRET}
       discovery: ${AUTH0_DISCOVERY_URL}
       scope: "openid profile"
+    prometheus: {} 
   upstream:
     type: roundrobin
     nodes:
@@ -79,6 +83,7 @@
       client_secret: ${AUTH0_CLIENT_SECRET}
       discovery: ${AUTH0_DISCOVERY_URL}
       scope: "openid profile"
+    prometheus: {} 
   upstream:
     type: roundrobin
     nodes:
@@ -96,6 +101,7 @@
       client_secret: ${AUTH0_CLIENT_SECRET}
       discovery: ${AUTH0_DISCOVERY_URL}
       scope: "openid profile"
+    prometheus: {} 
   upstream:
     type: roundrobin
     nodes:
@@ -113,6 +119,7 @@
       client_secret: ${AUTH0_CLIENT_SECRET}
       discovery: ${AUTH0_DISCOVERY_URL}
       scope: "openid profile"
+    prometheus: {} 
   upstream:
     type: roundrobin
     nodes:
@@ -130,6 +137,7 @@
       client_secret: ${AUTH0_CLIENT_SECRET}
       discovery: ${AUTH0_DISCOVERY_URL}
       scope: "openid profile"
+    prometheus: {} 
   upstream:
     type: roundrobin
     nodes:
@@ -147,6 +155,7 @@
       client_secret: ${AUTH0_CLIENT_SECRET}
       discovery: ${AUTH0_DISCOVERY_URL}
       scope: "openid profile"
+    prometheus: {} 
   upstream:
     type: roundrobin
     nodes:
@@ -164,6 +173,7 @@
       client_secret: ${AUTH0_CLIENT_SECRET}
       discovery: ${AUTH0_DISCOVERY_URL}
       scope: "openid profile"
+    prometheus: {} 
   upstream:
     type: roundrobin
     nodes:
@@ -181,6 +191,7 @@
       client_secret: ${AUTH0_CLIENT_SECRET}
       discovery: ${AUTH0_DISCOVERY_URL}
       scope: "openid profile"
+    prometheus: {} 
   upstream:
     type: roundrobin
     nodes:
@@ -199,6 +210,7 @@
       client_secret: ${AUTH0_CLIENT_SECRET}
       discovery: ${AUTH0_DISCOVERY_URL}
       scope: "openid profile"
+    prometheus: {} 
   upstream:
     type: roundrobin
     nodes:
@@ -216,6 +228,7 @@
       client_secret: ${AUTH0_CLIENT_SECRET}
       discovery: ${AUTH0_DISCOVERY_URL}
       scope: "openid profile"
+    prometheus: {} 
   upstream:
     type: roundrobin
     nodes:
@@ -234,6 +247,7 @@
       client_secret: ${AUTH0_CLIENT_SECRET}
       discovery: ${AUTH0_DISCOVERY_URL}
       scope: "openid profile"
+    prometheus: {} 
   upstream:
     type: roundrobin
     nodes:
@@ -251,6 +265,7 @@
       client_secret: ${AUTH0_CLIENT_SECRET}
       discovery: ${AUTH0_DISCOVERY_URL}
       scope: "openid profile"
+    prometheus: {} 
   upstream:
     type: roundrobin
     nodes:
@@ -268,6 +283,7 @@
       client_secret: ${AUTH0_CLIENT_SECRET}
       discovery: ${AUTH0_DISCOVERY_URL}
       scope: "openid profile"
+    prometheus: {} 
   upstream:
     type: roundrobin
     nodes:
@@ -285,6 +301,7 @@
       client_secret: ${AUTH0_CLIENT_SECRET}
       discovery: ${AUTH0_DISCOVERY_URL}
       scope: "openid profile"
+    prometheus: {} 
   upstream:
     type: roundrobin
     nodes:
@@ -301,6 +318,7 @@
       client_secret: ${AUTH0_CLIENT_SECRET}
       discovery: ${AUTH0_DISCOVERY_URL}
       scope: "openid profile"
+    prometheus: {} 
   upstream:
     type: roundrobin
     nodes:
@@ -318,6 +336,7 @@
       client_secret: ${AUTH0_CLIENT_SECRET}
       discovery: ${AUTH0_DISCOVERY_URL}
       scope: "openid profile"
+    prometheus: {} 
   upstream:
     type: roundrobin
     nodes:
@@ -335,6 +354,7 @@
       client_secret: ${AUTH0_CLIENT_SECRET}
       discovery: ${AUTH0_DISCOVERY_URL}
       scope: "openid profile"
+    prometheus: {} 
   upstream:
     type: roundrobin
     nodes:
@@ -352,6 +372,7 @@
       client_secret: ${AUTH0_CLIENT_SECRET}
       discovery: ${AUTH0_DISCOVERY_URL}
       scope: "openid profile"
+    prometheus: {} 
   upstream:
     type: roundrobin
     nodes:
@@ -369,6 +390,7 @@
       client_secret: ${AUTH0_CLIENT_SECRET}
       discovery: ${AUTH0_DISCOVERY_URL}
       scope: "openid profile"
+    prometheus: {} 
   upstream:
     type: roundrobin
     nodes:
@@ -386,6 +408,7 @@
       client_secret: ${AUTH0_CLIENT_SECRET}
       discovery: ${AUTH0_DISCOVERY_URL}
       scope: "openid profile"
+    prometheus: {} 
   upstream:
     type: roundrobin
     nodes:
@@ -403,6 +426,7 @@
       client_secret: ${AUTH0_CLIENT_SECRET}
       discovery: ${AUTH0_DISCOVERY_URL}
       scope: "openid profile"
+    prometheus: {} 
   upstream:
     type: roundrobin
     nodes:
@@ -420,6 +444,7 @@
       client_secret: ${AUTH0_CLIENT_SECRET}
       discovery: ${AUTH0_DISCOVERY_URL}
       scope: "openid profile"
+    prometheus: {} 
   upstream:
     type: roundrobin
     nodes:
@@ -438,6 +463,7 @@
       client_secret: ${AUTH0_CLIENT_SECRET}
       discovery: ${AUTH0_DISCOVERY_URL}
       scope: "openid profile"
+    prometheus: {} 
   upstream:
     type: roundrobin
     nodes:
@@ -455,6 +481,7 @@
       client_secret: ${AUTH0_CLIENT_SECRET}
       discovery: ${AUTH0_DISCOVERY_URL}
       scope: "openid profile"
+    prometheus: {} 
   upstream:
     type: roundrobin
     nodes:
@@ -472,6 +499,7 @@
       client_secret: ${AUTH0_CLIENT_SECRET}
       discovery: ${AUTH0_DISCOVERY_URL}
       scope: "openid profile"
+    prometheus: {} 
   upstream:
     type: roundrobin
     nodes:
@@ -489,6 +517,7 @@
       client_secret: ${AUTH0_CLIENT_SECRET}
       discovery: ${AUTH0_DISCOVERY_URL}
       scope: "openid profile"
+    prometheus: {} 
   upstream:
     type: roundrobin
     nodes:
