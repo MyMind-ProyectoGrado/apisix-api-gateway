@@ -272,7 +272,7 @@
       "${BACK_SV_USERS_HOST}:${BACK_SV_USERS_PORT}": 1
     pass_host: pass
 
-- uri: /users/transcriptions/by-emotion/{emotion}
+- uri: /users/transcriptions/by-emotion/*
   methods:
     - GET
   plugins:
@@ -415,9 +415,9 @@
       "${BACK_SV_MODELS_HOST}:${BACK_SV_MODELS_PORT}": 1
     pass_host: pass
 
-- uri: /users/transcriptions/delete-transcription/{transcription_id}
+- uri: /users/transcriptions/delete-transcription/*
   methods:
-    - POST
+    - DELETE
   plugins:
     openid-connect:
       bearer_only: true
@@ -435,7 +435,7 @@
 
 - uri: /users/transcriptions/delete-all-transcriptions
   methods:
-    - POST
+    - DELETE
   plugins:
     openid-connect:
       bearer_only: true
