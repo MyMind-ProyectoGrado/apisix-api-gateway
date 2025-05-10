@@ -415,6 +415,25 @@
       "${BACK_SV_MODELS_HOST}:${BACK_SV_MODELS_PORT}": 1
     pass_host: pass
 
+- uri: /transcription/stream/*
+  methods:
+    - GET
+  enable_websocket: true
+  plugins:
+    openid-connect:
+      bearer_only: true
+      use_jwks: true
+      client_id: ${AUTH0_CLIENT_ID}
+      client_secret: ${AUTH0_CLIENT_SECRET}
+      discovery: ${AUTH0_DISCOVERY_URL}
+      scope: "openid profile"
+    prometheus: {} 
+  upstream:
+    type: roundrobin
+    nodes:
+      "${BACK_SV_MODELS_HOST}:${BACK_SV_MODELS_PORT}": 1
+    pass_host: pass
+
 - uri: /users/transcriptions/delete-transcription/*
   methods:
     - DELETE
@@ -507,6 +526,24 @@
     pass_host: pass
   
 - uri: /transcriptions/user/last-week/top-emotions-sentiments
+  methods:
+    - GET
+  plugins:
+    openid-connect:
+      bearer_only: true
+      use_jwks: true
+      client_id: ${AUTH0_CLIENT_ID}
+      client_secret: ${AUTH0_CLIENT_SECRET}
+      discovery: ${AUTH0_DISCOVERY_URL}
+      scope: "openid profile"
+    prometheus: {} 
+  upstream:
+    type: roundrobin
+    nodes:
+      "${BACK_SV_VISUALIZATIONS_HOST}:${BACK_SV_VISUALIZATIONS_PORT}": 1
+    pass_host: pass
+
+- uri: /transcriptions/user/audio/*
   methods:
     - GET
   plugins:
