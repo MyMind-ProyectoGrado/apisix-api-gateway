@@ -276,7 +276,7 @@
         "id": 6,
         "options": {
           "displayMode": "lcd",
-          "minVizHeight": 10,
+          "minVizHeight": 20,
           "minVizWidth": 0,
           "orientation": "horizontal",
           "reduceOptions": {
