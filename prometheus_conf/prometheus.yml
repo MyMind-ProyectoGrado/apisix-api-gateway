@@ -38,3 +38,21 @@ scrape_configs:
     metrics_path: "/apisix/prometheus/metrics"
     static_configs:
       - targets: ["apisix:9091"]
+
+  - job_name: 'fastapi-users'
+    scrape_interval: 5s
+    metrics_path: "/metrics"
+    static_configs:
+      - targets: ['back-sv-users:8000']
+
+  - job_name: 'fastapi-models'
+    scrape_interval: 5s
+    metrics_path: "/metrics"
+    static_configs:
+      - targets: ['back-sv-models:8001']
+
+  - job_name: 'fastapi-visualizations'
+    scrape_interval: 5s
+    metrics_path: "/metrics"
+    static_configs:
+      - targets: ['back-sv-visualizations:8002']
