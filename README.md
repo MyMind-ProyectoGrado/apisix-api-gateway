@@ -1,4 +1,4 @@
-# Gateway API con APISIX y Auth0
+# Gateway API con APISIX y Auth0 y Monitoreo
 
 Este proyecto implementa un **API Gateway** con **Apache APISIX**, autenticación con **Auth0**, y múltiples servicios backend dockerizados. Todas las rutas están protegidas con `openid-connect` y definidas dinámicamente mediante un script en Python.
 
@@ -12,11 +12,25 @@ Este proyecto implementa un **API Gateway** con **Apache APISIX**, autenticació
 
 ```
 .
-├── apisix/
-│   └── routes.yaml          # Rutas protegidas y configuradas con Auth0
-├── .env                     # Variables de entorno
-├── docker-compose.yaml      # APISIX, etcd y dashboard
-├── load_routes.py           # Script para registrar rutas en APISIX
+├── app/
+│   ├── core/
+│   │   ├── auth.py                 # Lógica de autenticación y autorización
+│   │   └── database.py             # Conexión a la base de datos MongoDB
+│   ├── routes/
+│   │   ├── audio.py                # Ruta para procesar audio
+│   │   ├── transcriptions.py       # Rutas para agregar y consultar transcripciones
+│   │   └── users.py                # Rutas para manejo de usuarios
+│   ├── schemas/
+│   │   ├── transcription_schema.py # Esquema Pydantic para transcripciones
+│   │   └── user_schema.py          # Esquema Pydantic para usuarios
+│   └── tests/                      # Pruebas unitarias
+├── main.py                         # Punto de entrada de la aplicación FastAPI
+├── .env                            # Variables de entorno (puertos, Mongo, Auth0, etc.)
+├── .gitignore                      # Archivos a ignorar por Git
+├── docker-compose.yml              # Orquestación de contenedores (FastAPI, Mongo, etc.)
+├── Dockerfile                      # Imagen para el backend FastAPI
+├── README.md                       # Documentación del servicio
+├── requirements.txt                # Dependencias del backend
 ```
 
 ## 🚀 Cómo usar
